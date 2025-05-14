@@ -53,10 +53,11 @@ class FoodItemController extends Controller
     }
 
  
-    public function edit(FoodItem $foodItem)
-    {
-        return view('admin.panel', compact('foodItem'));
-    }
+   public function edit(FoodItem $foodItem)
+{
+    $foodItems = FoodItem::all(); // load all to pass to the view
+    return view('admin.panel', compact('foodItem', 'foodItems'));
+}
 
    
     public function update(Request $request, FoodItem $foodItem)
